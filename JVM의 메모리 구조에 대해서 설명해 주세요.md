@@ -2,12 +2,14 @@
 
 JVM의 메모리 구조에 대해서 설명해 주세요.
  
+ </br>
 
 ## JVM 메모리 구조에 대해서 알아야 하는 이유?
 JVM을 몰라도 코드 짜고 실행시키는데 큰 문제는 없습니다.
 
 다만 대규모 프로젝트에서는 메모리 관리에 따라 프로그램의 성능이 크게 차이가 날 수 있으므로 제대로 된 JAVA 개발자라면 JVM 메모리 구조에 대해 제대로 알아 둘 필요가 있겠죠?
 
+ </br>
  
 ## JVM 이란?
 JVM은 Java Virtual Machine의 약자로, 자바 가상 머신을 의미합니다.
@@ -29,6 +31,7 @@ JVM은 자바와 운영체제 사이에서 중개자 역할을 수행합니다.
 ![자바 프로그램 실행 단계](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPSafI%2Fbtrr2s3K1hP%2FzI8IM2CKz4YUE2SxhNx6LK%2Fimg.png){ width: 200px; }
 
 
+ </br>
 
 ## 자바 프로그램 실행 단계
 
@@ -41,17 +44,21 @@ JVM은 자바와 운영체제 사이에서 중개자 역할을 수행합니다.
 
 여기서 이 일련의 과정에 해당하는 부분을 오늘 알아보겠습니다!
 
+ </br>
+
 ## JVM 메모리 구조?
 
 위의 그림을 보다 상세히 그려보았습니다.
 ![JVM 메모리 구조](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbsyPFt%2Fbtrr7qqjzaZ%2Fn2uTTL61ybjuTjX1f0fU70%2Fimg.png)
 
+</br>
+ 
 ### (1) Class Loader
 JVM 내로 클래스 파일을 로드하고, 링크를 통해 배치하는 작업을 수행하는 모듈입니다.
 
 런타임 시에 동적으로 클래스를 로드합니다.
 
- 
+</br>
 
 ### (2) Execution Engine
 Class Loader를 통해 JVM 내의 Runtime Data Area에 배치된 바이트 코드들을 명렁어 단위로 읽어서 실행합니다.
@@ -70,7 +77,7 @@ JIT는 바이트 코드를 어셈블러 같은 네이티브 코드로 바꿈으�
 
 인터프리터 방식을 사용하다가 일정한 기준이 넘어가면 JIT 컴파일러 방식으로 실행합니다.
 
- 
+</br>
 
 ### (3) Garbage Collector
 
@@ -81,6 +88,7 @@ Data 	전역변수, 정적변수
 Heap	사용자 동적할당 (런타임에 결정)
 Stack	지역변수, 매개변수
 
+</br>
 
 ### (4) Runtime Data Area
 
