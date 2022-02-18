@@ -8,6 +8,6 @@
 
 ## Spring
 + Spring이란 무엇인가요? Spring이 이야기하는 장점에는 무엇들이 있을까요? (EJB와 비교해서 설명하면 좋을듯)  [answer](https://github.com/isoomni/Tech-Interview/blob/main/Spring%EC%9D%B4%EB%9E%80%20%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94%3F.md)
-+ IoC, DI는 무엇이고 어떠한 장점이 있을까요?  [answer]()
++ IoC, DI는 무엇이고 어떠한 장점이 있을까요?  [answer](https://github.com/isoomni/Tech-Interview/blob/main/IoC%2C%20DI%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%B4%EA%B3%A0%20%EC%96%B4%EB%96%A0%ED%95%9C%20%EC%9E%A5%EC%A0%90%EC%9D%B4%20%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94%3F.md)
 + Spring IoC Container란 무엇인가요?   [answer]()
 + Spring, Spring Boot의 차이점에 대해 각각 설명해 주세요.   [answer]()
