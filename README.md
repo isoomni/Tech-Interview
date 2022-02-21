@@ -11,3 +11,17 @@
 + IoC, DI는 무엇이고 어떠한 장점이 있을까요?  [answer](https://github.com/isoomni/Tech-Interview/blob/main/IoC%2C%20DI%EB%8A%94%20%EB%AC%B4%EC%97%87%EC%9D%B4%EA%B3%A0%20%EC%96%B4%EB%96%A0%ED%95%9C%20%EC%9E%A5%EC%A0%90%EC%9D%B4%20%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94%3F.md)
 + Spring IoC Container란 무엇인가요?   [answer]()
 + Spring, Spring Boot의 차이점에 대해 각각 설명해 주세요.   [answer]()
+
+
+</br></br>
+
+---
+
+</br>
+
+본 repo는 다음 git 저장소의 기술인터뷰 질문을 주제로 공부한 내용을 담고 있습니다.
+
+[Lob-dev/Junior-Back-end-Developer-Concepts](https://github.com/Lob-dev/Junior-Back-end-Developer-Concepts/blob/main/Job%20interview.md)
+
+
+</br>
