@@ -8,4 +8,4 @@
 ### spring
 |문제 번호|질문|답변 링크|
 |:-------:|--------------------|:-------:|
-|01|Bean이란 무엇인가요?|답변링크|
+|01|Bean이란 무엇인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week1_spring.md)|
