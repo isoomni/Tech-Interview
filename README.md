@@ -13,8 +13,8 @@
 |문제 번호|질문|답변 링크|
 |:-------:|--------------------|:-------:|
 |01|Spring이란 무엇인가요? Spring이 이야기하는 장점에는 무엇들이 있을까요? (EJB와 비교해서 설명하면 좋을듯)|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring1.md)|
-|02|IoC, DI는 무엇이고 어떠한 장점이 있을까요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring2.m)|
-|03|Spring IoC Container란 무엇인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring3.m)|
+|02|IoC, DI는 무엇이고 어떠한 장점이 있을까요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring2.md)|
+|03|Spring IoC Container란 무엇인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring3.md)|
 |04|Spring, Spring Boot의 차이점에 대해 각각 설명해 주세요.|[답변링크]()|
 |05|Bean이란 무엇인가요?|[답변링크]()|
 
