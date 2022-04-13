@@ -9,3 +9,4 @@
 |문제 번호|질문|답변 링크|
 |:-------:|--------------------|:-------:|
 |01|Bean이란 무엇인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week1_spring.md)|
+|02|Bean Scope와 종류에 대해 아는 만큼 설명해주세요.|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week2_spring.md)|
