@@ -4,6 +4,7 @@
 |문제 번호|질문|답변 링크|
 |:-------:|--------------------|:-------:|
 |01|JVM은 어떤 방식으로 코드를 해석하고 실행시키는지 흐름에 맞게 설명해 주세요. (Java 실행 흐름)|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week1_java.md)|
+|02|Garbage Collector은 무엇이고, Parallel GC와 CMS GC, G1 GC의 큰 차이는 무엇인지 설명해주세요. (mark-sweep-compact, concurrency-sweep, |[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week2_java.md)|
 
 ### spring
 |문제 번호|질문|답변 링크|
