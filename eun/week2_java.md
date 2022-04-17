@@ -69,6 +69,10 @@
 
 
 #### GC 동작 순서
+
+- 처음 생성된 객체는 시간의 흐름에 따라 아래의 그림과 같이 변한다.
+![java](/eun/image/week2_java3.jpg)
+
 처음 생성된 객체`new Model();` Young Generation의 Eden 영역에 위치하게 된다.
 Young 영역을 자세히 보면 다음과 같다.
 
@@ -111,14 +115,90 @@ Young 영역은 세 부분으로 나뉜다.
 > Concurrent Mark & Sweep GC(이하 CMS)  
 > G1(Garbage First) GC  
 
-이 중에서 운영 서버에서 절대 사용하면 안 되는 방식이 Serial GC다. Serial GC는 데스크톱의 CPU 코어가 하나만 있을 때 사용하기 위해서 만든 방식이다. Serial GC를 사용하면 애플리케이션의 성능이 많이 떨어진다.
+<br>
 
-그럼 각 GC 방식에 대해서 살펴보자.
+### Serial GC
+- Young 영역 : Mark Sweep
+- Old 영역 : Mark-Sweep-Compact 알고리즘
+- Mark-Sweep-Compact 알고리즘
+  - 기존의 Mark-Sweep에 Compact 작업 추가
+  - Compact : Heap 영역을 정리하기 위한 단계.
+  - Old 영역에 살아있는 객체를 식별(Mark)하고 힙의 앞 부분부터 확인하여 살아 있는 것만 남긴다(Sweep). 마지막 단계에서는 객체들이 연속되게 쌓이도록 힙의 가장 앞 부분부터 채워서 객체가 존재하는 부분과 객체가 존재하지 않는 부분으로 나눈다(Compaction).
+
+- Serial GC는 서버의 CPU 코어가 1개일 때 사용하기 위해 개발됨.
+- 모든 가비지 컬렉션 일을 처리하기 위해 1개의 쓰레드만을 이용  
+=> CPU의 코어가 여러 개인 운영 서버에서 Serial GC를 사용하는 것은 반드시 피해야 한다.
+
+
+### Parallel GC
+- Parallel GC는 Throughput GC라고도 함.
+- 기본적인 처리 과정은 Serial GC와 같음.
+- 하지만 Parallel GC는 여러 개의 쓰레드를 통해 Parallel하게 GC를 수행 -> GC의 오버헤드를 상당히 줄여준다. 
+- 메모리가 충분하고 코어의 개수가 많을 때 유리함.
+
+### Parallel Old GC
+- Parallel GC와 Old 영역의 GC 알고리즘만 다르다. 
+- Parallel Old GC : Mark-Summary-Compaction이 사용
+- Summary 단계 : 앞서 GC를 수행한 영역에 대해서 별도로 살아있는 객체를 식별
+
+
+### CMS(Concurrent Mark Sweep) GC
+- Parallel GC와 마찬가지로 여러 개의 쓰레드를 이용
+- 하지만 기존의 Serial GC나 Parallel GC와는 다르게 Mark Sweep 알고리즘을 Concurrent하게 수행하게 된다.
+
+ ![java](/eun/image/week2_java4.png)
+
+- 초기 Initial Mark 단계 : 클래스 로더에서 가장 가까운 객체 중 살아 있는 객체만 찾는 것으로 끝낸다. -> 멈추는 시간은 매우 짧다.
+- Concurrent Mark 단계 : 방금 살아있다고 확인한 객체에서 참조하고 있는 객체들을 따라가면서 확인. 다른 스레드가 실행 중인 상태에서 동시에 진행
+- Remark 단계 : Concurrent Mark 단계에서 새로 추가되거나 참조가 끊긴 객체를 확인. 
+- Concurrent Sweep 단계 : 쓰레기를 정리하는 작업. 다른 스레드가 실행되고 있는 상황에서 진행
+
+=> stop-the-world 시간이 매우 짧다. 모든 애플리케이션의 응답 속도가 매우 중요할 때 CMS GC를 사용하며, Low Latency GC라고도 부른다.
+
+- 그런데 CMS GC는 stop-the-world 시간이 짧다는 장점에 반해 다음과 같은 단점이 존재한다.
+- [단점]
+  - 다른 GC 방식보다 메모리와 CPU를 더 많이 사용한다.
+  - Compaction 단계가 기본적으로 제공되지 않는다.
+  - 시스템이 장기적으로 운영되다가 조각난 메모리들이 많아 Compaction 단계가 수행되면 오히려 Stop The World 시간이 길어지는 문제가 발생할 수 있다.
+
+### G1(Garbage First) GC
+- G1(Garbage First) GC는 장기적으로 많은 문제를 일으킬 수 있는 CMS GC를 대체하기 위해 개발되었고, Java7부터 지원되기 시작하였다.
+
+- 기존의 GC 알고리즘 : Heap 영역을 물리적으로 Young 영역(Eden 영역과 2개의 Survivor 영역)과 Old 영역으로 나누어 사용
+- G1 GC : Eden 영역에 할당하고, Survivor로 카피하는 등의 과정을 사용하지만 물리적으로 메모리 공간을 나누지 않는다. 
+- 대신 Region(지역)이라는 개념을 새로 도입하여 Heap을 균등하게 여러 개의 지역으로 나누고, 각 지역을 역할과 함께 논리적으로 구분하여(Eden 지역인지, Survivor 지역인지, Old 지역인지) 객체를 할당한다.
+
+![java](/eun/image/week2_java5.jpg)
+
+- G1 GC에서는 Eden, Survivor, Old 역할에 더해 `Humongous`와 `Availabe/Unused`라는 2가지 역할을 추가
+- Humonguous : Region 크기의 50%를 초과하는 객체를 저장하는 Region
+- Availabe/Unused : 사용되지 않은 Region 
+
+- G1 GC의 핵심은 Heap을 동일한 크기의 Region으로 나누고, 가비지가 많은 Region에 대해 우선적으로 GC를 수행하는 것
+- G1 GC도 다른 가비지 컬렉션과 마찬가지로 2가지 GC(Minor GC, Major GC)로 나누어 수행된다.
+- Minor GC
+  - 한 지역에 객체를 할당하다가 해당 지역이 꽉 차면 다른 지역에 객체를 할당 -> Minor GC 실행
+  - G1 GC는 각 지역을 추적하고 있기 때문에, 가비지가 가장 많은(Garbage First) 지역을 찾아서 Mark-and-Sweep를 수행
+  
+  - Eden 지역에서 GC가 수행되면 살아남은 객체를 식별(Mark)하고, 메모리를 회수(Sweep)한다. 그리고 살아남은 객체를 다른 지역으로 이동시키게 된다. 복제되는 지역이 Available/Unused 지역이면 해당 지역은 이제 Survivor 영역이 되고, Eden 영역은 Available/Unused 지역이 된다.
+
+- Major GC(Full GC)
+  - 시스템이 계속 운영되다가 객체가 너무 많아 빠르게 메모리를 회수 할 수 없을 때 -> Major GC(Full GC)가 실행
+ - 기존의 다른 GC 알고리즘은 모든 Heap의 영역에서 GC가 수행 -> 처리 시간이 오래 걸림
+ - G1 GC는 어느 영역에 가비지가 많은지를 알고 있기 때문에 GC를 수행할 지역을 조합하여 해당 지역에 대해서만 GC를 수행
+ - 그리고 이러한 작업은 Concurrent하게 수행되기 때문에 애플리케이션의 지연도 최소화할 수 있다.
+
+<br>
+ 
+- 물론 G1 GC는 다른 GC 방식에 비해 잦게 호출될 것이다. 하지만 작은 규모의 메모리 정리 작업이고 Concurrent하게 수행되기 때문이 지연이 크지 않으며, 가비지가 많은 지역에 대해 정리를 하므로 훨씬 효율적이다.
+
+- G1 GC는 앞의 어떠한 GC 방식보다 처리 속도가 빠르며 큰 메모리 공간에서 멀티 프로레스 기반으로 운영되는 애플리케이션을 위해 고안되었다. 
+- 또한 G1 GC는 다른 GC 방식의 처리속도를 능가하기 때문에 Java9부터 기본 가비지 컬렉터(Default Garbage Collector)로 사용되게 되었다.
 
 
 
 ---
-https://d2.naver.com/helloworld/329631
-https://d2.naver.com/helloworld/1329
-https://mirinae312.github.io/develop/2018/06/04/jvm_gc.html
-https://mangkyu.tistory.com/118
+[Java Reference와 GC](https://d2.naver.com/helloworld/329631)  
+[Java Garbage Collection](https://d2.naver.com/helloworld/1329)  
+[Java 의 GC는 어떻게 동작하나?](https://mirinae312.github.io/develop/2018/06/04/jvm_gc.html)  
+[[Java] 다양한 종류의 Garbage Collection(가비지 컬렉션) 알고리즘 (2/2)](https://mangkyu.tistory.com/119)
