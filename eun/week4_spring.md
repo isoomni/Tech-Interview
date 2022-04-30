@@ -61,3 +61,6 @@ class wooteco.subway.AppConfig
 > `CGLIB` : 바이트 코드 조작 라이브러리. 런타임에 동적으로 자바 클래스의 프록시를 생성해주는 기능을 제공.
 
 
+---
+참고사이트  
+[[Spring] @Configuration을 통한 빈 등록 시 싱글톤 관리](https://velog.io/@max9106/Spring-Configuration%EC%9D%84-%ED%86%B5%ED%95%9C-%EB%B9%88-%EB%93%B1%EB%A1%9D-%EC%8B%9C-%EC%8B%B1%EA%B8%80%ED%86%A4-%EA%B4%80%EB%A6%AC)
