@@ -11,3 +11,4 @@
 |:-------:|--------------------|:-------:|
 |01|Bean이란 무엇인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week1_spring.md)|
 |02|Bean Scope와 종류에 대해 아는 만큼 설명해주세요.|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week2_spring.md)|
+|03|Configuration은 어떻게 Bean을 등록하고 관리할까요? (Singleton을 지키는 매커니즘은?)|답변링크|
