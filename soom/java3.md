@@ -119,6 +119,8 @@ JVM의 메모리 영역으로 자바 애플리케이션을 실행할 때 사용�
 
 마지막으로, 메서드 수행이 끝나면 프레임별로 삭제합니다.
 
+힙 영역에 도달하기 위한 주소값도 스택 영역에 보관이된다.
+
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fk5BgJ%2Fbtrr3jL4wXV%2Fzby6BnFw2oUC1AOqR9N4YK%2Fimg.png)
 
  
