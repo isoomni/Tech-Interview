@@ -122,11 +122,28 @@
 
 ![java](image/week4_java2.png)
 
+---
+\+ 220509 추가
+```java
 
+    Dog myDog = new Dog("Rover");
+    foo(myDog);
 
+    public void foo(Dog someDog) {  // A
+        someDog.setName("Max");     // B
+        someDog = new Dog("Fifi");  // C
+        someDog.setName("Rowlf");   // D
+    }
 
+```
+
+![java](image/week4_java3.jpg)
+
+만약 java가 call-by-reference 였다면, 위의 C 과정에서 원본의 포인터가 변경되었을 것이다.
 
 ---
 참고사이트  
 [[Java]Call by value & Call by reference](https://hyoje420.tistory.com/6)  
-[[Java] Call by Value, Call by Reference](https://velog.io/@ahnick/Java-Call-by-Value-Call-by-Reference)
+[[Java] Call by Value, Call by Reference](https://velog.io/@ahnick/Java-Call-by-Value-Call-by-Reference)  
+[Java is Pass-by-Value, Dammit!](https://www.javadude.com/articles/passbyvalue.htm)  
+[Is Java "pass-by-reference" or "pass-by-value"?](https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value/40523#40523)
