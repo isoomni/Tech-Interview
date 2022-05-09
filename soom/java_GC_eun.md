@@ -127,8 +127,8 @@ Young 영역은 세 부분으로 나뉜다.
 => CPU의 코어가 여러 개인 운영 서버에서 Serial GC를 사용하는 것은 반드시 피해야 한다.
 
 
-### Parallel GC
-- Parallel GC는 Throughput GC라고도 함.
+### Parallel(병렬적으로) GC
+- Parallel(병렬적으로-어떤 계산을 병렬적으로 수행하여 빠르게 끝낼 수 있도록) GC는 Throughput GC라고도 함.
 - 기본적인 처리 과정은 Serial GC와 같음.
 - 하지만 Parallel GC는 여러 개의 쓰레드를 통해 Parallel하게 GC를 수행 -> GC의 오버헤드를 상당히 줄여준다. 
 - 메모리가 충분하고 코어의 개수가 많을 때 유리함.
@@ -141,7 +141,7 @@ Young 영역은 세 부분으로 나뉜다.
 
 ### CMS(Concurrent Mark Sweep) GC
 - Parallel GC와 마찬가지로 여러 개의 쓰레드를 이용
-- 하지만 기존의 Serial GC나 Parallel GC와는 다르게 Mark Sweep 알고리즘을 Concurrent하게 수행하게 된다.
+- 하지만 기존의 Serial GC나 Parallel GC와는 다르게 Mark Sweep 알고리즘을 Concurrent(동시적으로-같은 종류의 작업이 가능한 많이 동시에 일어나는 것을 추구)하게 수행하게 된다.
 
  ![java](/eun/image/week2_java4.png)
 
