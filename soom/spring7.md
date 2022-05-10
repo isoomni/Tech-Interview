@@ -2,6 +2,8 @@
 
 Bean Lite Mode는 무엇인가요?
 
+https://steady-coding.tistory.com/594
+
  </br>
 
 ---
