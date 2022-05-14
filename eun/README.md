@@ -8,6 +8,7 @@
 |03|Java 8 버전에 추가된 중요 기능들에 대하여서 설명해주세요.|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week4_java2.md)|
 |04|Java는 Call By Value일까요, Call By Reference 일까요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week4_java.md)|
 |05|Shallow Copy와 Deep Copy의 차이는 무엇인가요? 자바에서 Deep Copy를 하기 위해서는 무엇을 사용하여야 하나요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week5_java.md)|
+|06|Java Reflection이란 무엇이고, 어떨 때 사용되는 것인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week6_java.md))
 
 ### spring
 |문제 번호|질문|답변 링크|
