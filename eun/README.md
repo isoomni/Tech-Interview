@@ -18,3 +18,4 @@
 |03|Configuration은 어떻게 Bean을 등록하고 관리할까요? (Singleton을 지키는 매커니즘은?)|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week4_spring.md)|
 |04|Bean Lite Mode는 무엇인가요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week4_spring.md)|
 |05|Spring Bean Life-cycle에 대해서 말해주세요.|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week5_spring.md)|
+|06|순환 참조는 무엇이고 어떤 상황에서 발생할까요?|[답변링크](https://github.com/isoomni/Tech-Interview/blob/main/eun/week6_spring.md)|
