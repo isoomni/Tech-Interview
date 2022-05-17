@@ -11,6 +11,7 @@
 |  05   |Java 8 버전에 추가된 중요 기능들에 대하여서 설명해주세요.| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/java5.md) |
 |  06   |Java는 Call By Value일까요, Call By Reference 일까요?| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/java6.md) |
 |  07   |Shallow Copy와 Deep Copy의 차이는 무엇인가요? 자바에서 Deep Copy를 하기 위해서는 무엇을 사용하여야 하나요?| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/java7.md) |
+|  08  |Java Reflection이란 무엇이고, 어떨 때 사용되는 것인가요?| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/java8.md) |
 
 ### spring
 | 문제 번호 |질문|                                    답변 링크                                    |
@@ -23,13 +24,14 @@
 |  06   |Configuration은 어떻게 Bean을 등록하고 관리할까요?| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring6.md) |
 |  07   |Bean Lite Mode는 무엇인가요?| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring7.md) |
 |  08   |Spring Bean Life-cycle에 대해서 말해주세요.| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring8.md) |
+|  09   |순환 참조는 무엇이고 어떤 상황에서 발생할까요?| [답변링크](https://github.com/isoomni/Tech-Interview/blob/main/soom/spring9.md) |
 
-
-</br></br>
+<br>
+<br>
 
 ---
 
-</br>
+<br>
 
 본 repo는 다음 git 저장소의 기술인터뷰 질문을 주제로 공부한 내용을 담고 있습니다.
 
